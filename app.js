@@ -103,6 +103,8 @@ app.post('/verify', (req, res) => {
     });
 });
 
+
+
 app.get('/user', (req, res) => {
     if(req.session.userid == undefined){
         res.redirect('login');
@@ -115,6 +117,33 @@ app.get('/user', (req, res) => {
     console.log(req.session.user);
 });
 
+app.get('/newpost', (req, res) => {
+    res.render('newpost.mustache');
+});
+
+app.post('/postregistration', (req, res) => {
+    fs.readFile('temp/post.json', function (err, data) {
+        let postdata = [];
+        if (data === null || data.toString() === '') {
+            fs.writeFile('temp/post.json', '', function (err) {
+                console.log('failed to write file');
+            });
+        } else {
+            postdata = JSON.parse(data);
+        }
+        let newpost = {
+            posttitle: req.body.posttitle,
+            postcontent: req.body.postcontent,
+        }
+        postdata.push(newpost);
+        console.log("投稿の送信が完了しました。");
+        console.log(req.body.posttitle);
+        fs.writeFile('temp/post.json', JSON.stringify(postdata), function (err) {
+            res.redirect('/');
+        });
+
+    });
+});
 
     
 
