@@ -3,9 +3,12 @@ const app = express();
 const port = 3000;
 const fs = require("fs");
 const mustacheExpress = require("mustache-express");
+const session = require('express-session');
 
 app.use(express.urlencoded({ extended: true }));
-
+app.use(session({
+    secret: 'secret_key'
+}));
 app.engine('mustache', mustacheExpress());
 
 app.set('view engine', 'mustache');
@@ -22,10 +25,6 @@ app.get('/', (req, res) => {
 
 app.get('/recipe.html', (req, res) => {
     res.sendFile(__dirname + '/views/recipe.html');
-});
-
-app.post('/login', (req, res) => {
-    res.send('こんにちは!' + req.body.username);
 });
 
 app.get('/newid', (req, res) => {
@@ -70,6 +69,54 @@ app.post('/registration', (req, res) => {
 
 
 })
+
+app.post('/verify', (req, res) => {
+    fs.readFile('temp/account.json', function (err, dat) {
+        if (err) {
+            console.error(err);
+            res.redirect('/login');
+            return;
+        }
+
+        let data = [];
+        if (dat != undefined && dat.toString() != "") {
+            data = JSON.parse(dat.toString());
+        }
+        console.log(data)
+
+        let success = false;
+        for (let account of data) {
+            if (account.userid == req.body.userid && account.password) {
+                console.log("ログイン成功");
+                req.session.userid = account.userid;
+                success = true;
+                break;
+            }
+        }
+
+        if (success) {
+            res.redirect('/user');
+        } else {
+            console.log("ログイン失敗");
+            res.redirect('/login');
+        }
+    });
+});
+
+app.get('/user', (req, res) => {
+    if(req.session.userid == undefined){
+        res.redirect('login');
+    }
+    else{
+        res.render('user.mustache', {
+            userid: req.session.userid
+        });
+    }
+    console.log(req.session.user);
+});
+
+
+    
 
 app.use('/static', express.static('static'));
 
