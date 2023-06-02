@@ -25,6 +25,13 @@ input[type="text"] {
   border-radius: 5px;
   border: 1px solid #ccc;
 }
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
 
 input[type="submit"] {
   width: 106%;

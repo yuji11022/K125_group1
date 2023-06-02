@@ -7,10 +7,10 @@
 <body>
     <h1>アカウント登録</h1>
     <form action="/newregistration" method="post">
-        <label for="userid">ユーザーID:</label><br>
+        <label for="userid">ユーザーID :</label><br>
         <input type="text" id="userid" name="userid"><br>
-        <label for="password">パスワード:</label><br>
-        <input type="text" id="password" name="password"><br>
+        <label for="password">パスワード : <small>英数字8文字以上</small></label><br>
+        <input type="password" id="password" name="password" required pattern="^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+){8,}$"><br>
         <label for="username">サークル名:</label><br>
         <input type="text" id="username" name="username"><br>
         <input type="submit" value="登録">
