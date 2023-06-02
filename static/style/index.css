@@ -1,0 +1,104 @@
+h1 {
+  color: #333;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* body {
+  background: url(../img/jaist_drone.jpg) no-repeat center center fixed #C0C0C0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.flex_test-box {
+  background-color: #fff;     
+  padding:  10px;             
+  display: flex;             
+  justify-content:center;
+}
+
+.flex_test-item {
+  padding: 10px;
+  color:  #fff;
+  margin:  10px;              
+  border-radius:  5px;        
+  width: 15%;                
+}
+
+.flex_test-item:nth-child(1) {
+  background-color:  #89CFF0; 
+  font-size: 1.5em;
+  text-align:center
+}
+
+.flex_test-item:nth-child(2) {
+  background-color:  #FFB6C1; 
+  font-size: 1.5em;
+  text-align:center
+}
+
+.flex_test-item:nth-child(3) {
+  background-color: #E6E6FA; 
+  font-size: 1.5em;
+  text-align:center
+}
+
+.flex_test-item:nth-child(4) {
+  background-color:  #98FB98; 
+  font-size: 1.5em;
+  text-align:center
+}
+/* body {
+  font-family: Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.flex_test-box {
+  display: flex;
+  text-align: center;
+}
+
+.flex_test-box {
+  background-color: #eee;
+  padding:  10px;
+}
+
+.flex_test-item {
+  padding: 10px;
+  color:  #fff;
+  margin:  10px;
+  border-radius:  5px;
+  justify-content:center;
+
+}
+
+.flex_test-item:nth-child(1) {
+  background-color:  #2196F3;
+}
+
+.flex_test-item:nth-child(2) {
+  background-color:  #4CAF50;
+}
+
+.flex_test-item:nth-child(3) {
+  background-color: rgb(120, 214, 187);
+}
+
+.flex_test-item:nth-child(4) {
+  background-color:  #00BCD4;
+} */
