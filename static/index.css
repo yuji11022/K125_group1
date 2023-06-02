@@ -11,3 +11,34 @@ h1 {
   margin-top: 50px;
 }
 
+.flex_test-box {
+  display: flex;              /* フレックスボックスにする */
+}
+
+.flex_test-box {
+  background-color: #eee;     /* 背景色指定 */
+  padding:  10px;             /* 余白指定 */
+}
+
+.flex_test-item {
+  padding: 10px;
+  color:  #fff;               /* 文字色 */
+  margin:  10px;              /* 外側の余白 */
+  border-radius:  5px;        /* 角丸指定 */
+}
+
+.flex_test-item:nth-child(1) {
+  background-color:  #2196F3; /* 背景色指定 */
+}
+
+.flex_test-item:nth-child(2) {
+  background-color:  #4CAF50; /* 背景色指定 */
+}
+
+.flex_test-item:nth-child(3) {
+  background-color: rgb(120, 214, 187); /* 背景色指定 */
+}
+
+.flex_test-item:nth-child(4) {
+  background-color:  #00BCD4; /* 背景色指定 */
+}
