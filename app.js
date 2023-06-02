@@ -48,7 +48,16 @@ app.post('/newregistration', (req, res) => {
         }
         userdata.push(newuser);
         console.log("アカウント登録完了");
-        console.log(req.body.password);
+        console.log(req.body.userid);
+        const fileName = `temp/user_${req.body.userid}.json`;
+        fs.writeFile(fileName,"", function (err) {
+            if (err) {
+                console.error(`Error writing ${fileName} file:`, err);
+            } else {
+                console.log(`${fileName} file created successfully.`);
+            }
+        });
+
         fs.writeFile('temp/account.json', JSON.stringify(userdata), function (err) {
             res.redirect('/login');
         });
