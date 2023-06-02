@@ -77,7 +77,9 @@ app.post('/registration', (req, res) => {
     }
 
 
-})
+});
+
+
 
 app.post('/verify', (req, res) => {
     fs.readFile('temp/account.json', function (err, dat) {
@@ -162,3 +164,9 @@ app.listen(port, () => {
     console.log("server activated.");
 
 });
+
+app.get('/logout', (req, res) => {
+    req.session.userid = undefined;
+    res.redirect('/');
+});
+
