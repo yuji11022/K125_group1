@@ -18,10 +18,6 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/recipe.html', (req, res) => {
-    res.sendFile(__dirname + '/views/recipe.html');
-});
-
 app.get('/newid', (req, res) => {
     res.sendFile(__dirname + '/views/newid.html');
 });
