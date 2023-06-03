@@ -5,27 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>サークル情報掲示板</title>
-    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/style/index.css">
 </head>
 <body>
     <head>
-
+        <h1>サークル情報掲示板 トップページ</h1>
     </head>
     <main>
-        <p>
-            こちらはHPです。
-        </p>
-        <a href="recipe">詳細へ</a>
-        <a href="newid">新規登録</a>
-        <a href="login">ログイン</a>
-        <a href="newpost">新規投稿</a>
+        <div class="flex_test-box">
+            
+            <div class="flex_test-item">
+                <a href="newid">
+                    <img src="../static/img/newid.png">
+                    新規登録
+                </a>            
+            </div>
 
-        <form action="/registration" method="post">
-            <input type="text" name="username">
-            <input type="text" name="age">
-            <input type="text" name="description">
-            <button type="submit">送信</button>
-        </form>
+            <div class="flex_test-item">
+                <a href="login">
+                    <img src="../static/img/login.png">
+                    ログイン
+                </a>            
+            </div>
+
+            <div class="flex_test-item">
+                <a href="newpost">
+                    <img src="../static/img/newpost.png">
+                    新規投稿
+                </a>
+            </div>
+
+            <div class="flex_test-item">
+                <a href="recipe.html">
+                    <img src="../static/img/browse.png">
+                    閲覧ページ
+                </a>
+            </div>
+        </div>
+        <!-- <h1>
+            サークル情報掲示板 トップページ
+        </h1>
+        
+        <a href="newid">
+            新規登録
+        </a>
+        
+        <a href="login">
+            ログイン
+        </a>
+        <a href="newpost">
+            新規投稿
+        </a>
+
+
+        <a href="recipe.html">
+            掲示板
+        </a> -->
 
     </main>
     <footer>
