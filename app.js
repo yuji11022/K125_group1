@@ -14,14 +14,9 @@ app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
 app.set('views', __dirname + '/views');
 
-
-
-
-
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/index.html');
 });
-
 
 app.get('/recipe.html', (req, res) => {
     res.sendFile(__dirname + '/views/recipe.html');
@@ -76,10 +71,7 @@ app.post('/registration', (req, res) => {
         description: req.body.description
     }
 
-
-});
-
-
+})
 
 app.post('/verify', (req, res) => {
     fs.readFile('temp/account.json', function (err, dat) {
@@ -149,14 +141,43 @@ app.post('/postregistration', (req, res) => {
         postdata.push(newpost);
         console.log("投稿の送信が完了しました。");
         console.log(req.body.posttitle);
-        fs.writeFile('temp/post.json', JSON.stringify(postdata), function (err) {
-            res.redirect('/');
-        });
+        console.log(req.body.postcontent);
 
+
+        fs.writeFile('temp/post.json', JSON.stringify(postdata), function (err) {
+            res.redirect('/submit');
+            
+        });
+        
     });
 });
 
-    
+app.get('/submit', (req, res) => {
+    fs.readFile('temp/post.json',function (err,dat) {
+        let myArr = [];
+         if(dat.toString() !=""){
+         myArr = JSON.parse(dat.toString());
+        }
+      res.render('recipe.mustache',
+    {myArr,myArr});
+     })
+});
+
+app.get('/recipe', (req, res) => {
+    fs.readFile('temp/post.json',function (err,dat) {
+        let myArr = [];
+         if(dat.toString() !=""){
+         myArr = JSON.parse(dat.toString());
+        }
+      res.render('recipe.mustache',
+    {myArr,myArr});
+     })
+});
+
+app.get('/logout', (req, res) => {
+    req.session.userid = undefined;
+    res.redirect('/');
+});
 
 app.use('/static', express.static('static'));
 
@@ -165,8 +186,7 @@ app.listen(port, () => {
 
 });
 
-app.get('/logout', (req, res) => {
-    req.session.userid = undefined;
-    res.redirect('/');
-});
+
+
+
 
