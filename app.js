@@ -105,10 +105,9 @@ app.post('/verify', (req, res) => {
 
 
 app.get('/user', (req, res) => {
-    if(req.session.userid == undefined){
+    if (req.session.userid == undefined) {
         res.redirect('login');
-    }
-    else{
+    } else {
         res.render('user.mustache', {
             userid: req.session.userid
         });
@@ -160,14 +159,17 @@ app.get('/submit', (req, res) => {
 });
 
 app.get('/recipe', (req, res) => {
-    fs.readFile('temp/post.json',function (err,dat) {
+    fs.readFile('temp/post.json', function (err, dat) {
         let myArr = [];
-         if(dat.toString() !=""){
-         myArr = JSON.parse(dat.toString());
+        if (dat.toString() != "") {
+            myArr = JSON.parse(dat.toString());
         }
-      res.render('recipe.mustache',
-    {myArr,myArr});
-     })
+        res.render('recipe.mustache', {
+            myArr,
+            myArr,
+            userid: req.session.userid
+        });
+    });
 });
 
 app.get('/logout', (req, res) => {
