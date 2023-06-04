@@ -5,11 +5,7 @@ const fs = require("fs");
 const mustacheExpress = require("mustache-express");
 const session = require('express-session');
 
-
-
-
 app.engine('mustache', mustacheExpress());
-
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
     secret: 'secret_key'
@@ -18,6 +14,8 @@ app.engine('mustache', mustacheExpress());
 
 app.set('view engine', 'mustache');
 app.set('views', __dirname + '/views');
+
+
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/index.html');

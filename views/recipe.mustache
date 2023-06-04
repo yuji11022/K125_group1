@@ -18,8 +18,8 @@
     <main>
     <h1>閲覧ページ</h1><br>
     {{#myArr}}
-       タイトル：{{posttitle}} <br>
-       内容：{{postcontent}}<br>
+       <h4>タイトル：{{posttitle}} </h4>
+       <p>内容：{{postcontent}}</p>
        <button onclick="bookmark('{{posttitle}}','{{postcontent}}')">ブックマーク</button>
      <hr>
    {{/myArr}}
