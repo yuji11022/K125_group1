@@ -5,6 +5,11 @@ const fs = require("fs");
 const mustacheExpress = require("mustache-express");
 const session = require('express-session');
 
+
+
+
+app.engine('mustache', mustacheExpress());
+
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
     secret: 'secret_key'
@@ -40,14 +45,6 @@ app.post('/newregistration', (req, res) => {
         userdata.push(newuser);
         console.log("アカウント登録完了");
         console.log(req.body.userid);
-        const fileName = `temp/user_${req.body.userid}.json`;
-        fs.writeFile(fileName,"", function (err) {
-            if (err) {
-                console.error(`Error writing ${fileName} file:`, err);
-            } else {
-                console.log(`${fileName} file created successfully.`);
-            }
-        });
 
         fs.writeFile('temp/account.json', JSON.stringify(userdata), function (err) {
             res.redirect('/login');
@@ -161,15 +158,26 @@ app.get('/submit', (req, res) => {
 app.get('/recipe', (req, res) => {
     fs.readFile('temp/post.json', function (err, dat) {
         let myArr = [];
+        var idx = 0;
         if (dat.toString() != "") {
             myArr = JSON.parse(dat.toString());
         }
         res.render('recipe.mustache', {
             myArr,
             myArr,
-            userid: req.session.userid
+            userid: req.session.userid,
+            idx: function() {
+                return idx++;
+            }
+        
         });
     });
+    function bookmark(i) {
+        fs.readFile('temp/post.json', function (err, dat) {
+            console.log(dat[i]);
+
+        });
+    };
 });
 
 app.get('/logout', (req, res) => {
@@ -183,6 +191,12 @@ app.listen(port, () => {
     console.log("server activated.");
 
 });
+
+
+
+
+  
+
 
 
 

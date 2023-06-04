@@ -9,21 +9,37 @@
 </head>
 <body>
     <head>
-    <p>ユーザーID: {{userid}}</p>
+    <p>ユーザーID: {{userid}} のブックマーク</p>
+    <div id="bookmarkContents">
+      <p></p>
+    </div>
 
     </head>
     <main>
     <h1>閲覧ページ</h1><br>
     {{#myArr}}
-       {{posttitle}} <br>
-       {{postcontent}}<br>
+       タイトル：{{posttitle}} <br>
+       内容：{{postcontent}}<br>
+       <button onclick="bookmark('{{posttitle}}','{{postcontent}}')">ブックマーク</button>
      <hr>
    {{/myArr}}
+
 
     </main>
     <footer>
 
     </footer>
-    <script src="../app.js" type="text/javascript"></script>
+    
+    <script>
+    function bookmark(title, text) {
+      bookmarkContents = document.getElementById("bookmarkContents");
+      var h4 = document.createElement("h4");
+      var p = document.createElement("p");
+      h4.textContent = title;
+      p.textContent = text;
+      bookmarkContents.appendChild(h4);
+      bookmarkContents.appendChild(p);
+    }
+    </script>
 </body>
 </html>
