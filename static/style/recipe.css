@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+head {
+    padding: 20px;
+    text-align: center;
+    background-color: whitesmoke;
+    color: #333;
+}
+
+#bookmarkContents {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: whitesmoke;
+}
+​
+main {
+    margin: 20px;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.post {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+h4 {
+    color: #333;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #666;
+    line-height: 1.8;
+    font-size: 1.2em;
+}
+
+button {
+    width: 10%;
+    padding: 10px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #007B9A;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: whitesmoke;
+    color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
